@@ -1,0 +1,36 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "./assets/font/font.png",
+        "fontDataURL": "./assets/font/font.fnt"
+      },
+      {
+        "type": "html",
+        "key": "h",
+        "url": "./assets/html/loginform.html"
+      },
+      {
+        "type": "image",
+        "key": "background",
+        "url": "./assets/images/bg.png"
+      },
+      {
+        "type": "image",
+        "key": "bird",
+        "url": "./assets/images/bird.png"
+      },
+      {
+        "type": "spritesheet",
+        "key": "pipe",
+        "url": "./assets/sprites/pipe.png",
+        "frameConfig": {
+          "frameWidth": 20,
+          "frameHeight": 20
+        }
+      }
+    ]
+  }
+}
