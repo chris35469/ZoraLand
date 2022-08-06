@@ -18,9 +18,13 @@ export class MainMenuScene extends Phaser.Scene {
   create(): void {
     let y = this.sys.canvas.height * 0.45;
     this.addText("ZORA LAND", 30, 0, 50);
-    this.addText("START", 16, 0, y);
+    this.addText("START (PRESS S)", 16, 0, y);
     y = this.sys.canvas.height * 0.95;
     this.addText("BUILT BY W3BBIE", 12, 0, y);
+
+    this.input.keyboard.on("keydown-S", function (event: any) {
+      this.scene.start('WorldScene');
+     }.bind(this));
   }
 
   addText(text: string, size:number, x: number, y: number): void {
