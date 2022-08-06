@@ -66,6 +66,11 @@ export class BootScene extends Phaser.Scene {
       frameHeight: 64,
     });
 
+    var icons = this.load.spritesheet("icons", "../assets/images/icons.png", {
+      frameWidth: 32,
+      frameHeight: 32,
+    });
+
 
   }
 

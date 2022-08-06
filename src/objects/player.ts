@@ -21,22 +21,24 @@ export class CustomSprite extends Phaser.Physics.Arcade.Sprite {
     private idleEventMap: Object;
     private controlled: boolean;
     private spriteName: string;
+    private info: any;
 
-    constructor(scene: any, x: any, y: any, controlled: boolean, name: string) {
+    constructor(scene: any, x: any, y: any, controlled: boolean, name: string, info: any, scale: number = 2) {
         super(scene, x, y, 'player');
         this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
         //  You can either do this:
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.createAnimations(scene)
-        this.play('down-idle');
+        this.play(name);
         this.controlled = controlled;
         this.facingDirection = "down";
         this.setSize(16, 16);
-        this.setScale(2);
+        this.setScale(scale);
         this.cursors = scene.input.keyboard.createCursorKeys();
         this.speed = 1;
         this.spriteName = name;
+        this.info = info;
         this.keys = scene.input.keyboard.addKeys("W,A,S,D");
         this.keyUpMap = [
             { key: 'keyup-DOWN', animation: 'down-idle' },
@@ -105,6 +107,8 @@ export class CustomSprite extends Phaser.Physics.Arcade.Sprite {
         animationCreator(scene.anims, "player-attack", "left-attack", 5, 8, 12, -1);
         animationCreator(scene.anims, "player-attack", "right-attack", 9, 12, 12, -1);
         animationCreator(scene.anims, "player-attack", "up-attack", 13, 16, 12, -1);
+
+        animationCreator(scene.anims, "icons", "paper", 192, 192, 12, -1);
     }
 
     up() {
