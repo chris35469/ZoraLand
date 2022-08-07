@@ -33,6 +33,9 @@ export class WorldScene extends Phaser.Scene {
   private contractCount: number;
   private maxSpread: number;
   private collectionLink: string;
+  private charge: Phaser.Sound.BaseSound;
+  private grassCount: number;
+  private grassDistance: number;
 
   constructor() {
     super({
@@ -52,6 +55,8 @@ export class WorldScene extends Phaser.Scene {
     this.tokenName = "";
     this.contractCount = 500;
     this.maxSpread = 5000;
+    this.grassCount = 3000;
+    this.grassDistance = 5000;
   }
 
   generateSpriteContracts(): void {
@@ -72,9 +77,9 @@ export class WorldScene extends Phaser.Scene {
 
     this.generateSpriteContracts();
 
-    for (let i = 0; i < 500; i++) {
-      let x = Phaser.Math.Between(-1000, 1000);
-      let y = Phaser.Math.Between(-1000, 1000);
+    for (let i = 0; i < this.grassCount; i++) {
+      let x = Phaser.Math.Between(-this.grassDistance, this.grassDistance);
+      let y = Phaser.Math.Between(-this.grassDistance, this.grassDistance);
       this.add.image(x, y, 'grass1').setOrigin(0);
     }
 
@@ -105,7 +110,13 @@ export class WorldScene extends Phaser.Scene {
 
     this.input.keyboard.on("keydown-M", function (event: any) {
      console.log("add mint function here")
+     window.open("https://metabolism-22.vercel.app/mint", '_blank');
      }.bind(this));
+
+     let song = this.sound.add('song');
+     this.charge = this.sound.add('charge');
+
+     song.play("", {loop:true});
   }
 
   createDom(): void {
@@ -211,6 +222,8 @@ export class WorldScene extends Phaser.Scene {
         console.log(mediaLink)
         this.updateContractMedia(mediaLink, type)
         this.updateGameText();
+        this.charge.play();
+        
       } else {
         
       }

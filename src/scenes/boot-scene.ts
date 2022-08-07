@@ -71,6 +71,12 @@ export class BootScene extends Phaser.Scene {
       frameHeight: 32,
     });
 
+    //audio
+    this.load.audio('song', '../assets/sounds/song.mp3');
+    this.load.audio('charge', '../assets/sounds/c.wav');
+
+
+
 
   }
 

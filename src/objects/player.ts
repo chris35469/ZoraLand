@@ -36,7 +36,7 @@ export class CustomSprite extends Phaser.Physics.Arcade.Sprite {
         this.setSize(16, 16);
         this.setScale(scale);
         this.cursors = scene.input.keyboard.createCursorKeys();
-        this.speed = 2;
+        this.speed = 3;
         this.spriteName = name;
         this.info = info;
         this.keys = scene.input.keyboard.addKeys("W,A,S,D");
