@@ -33,6 +33,7 @@ export class WorldScene extends Phaser.Scene {
   private contractCount: number;
   private maxSpread: number;
   private collectionLink: string;
+  private mintLink: string;
 
   constructor() {
     super({
@@ -104,7 +105,8 @@ export class WorldScene extends Phaser.Scene {
     }.bind(this));
 
     this.input.keyboard.on("keydown-M", function (event: any) {
-     console.log("add mint function here")
+      window.open(this.mintLink, '_blank');
+     // console.log("add mint function here")
      }.bind(this));
   }
 
@@ -172,6 +174,7 @@ export class WorldScene extends Phaser.Scene {
     //let c = "0xabEFBc9fD2F806065b4f3C237d4b59D9A97Bcac7"
     this.getTokenInfo(contract, id)
     this.collectionLink = `https://zora.co/collections/zora/${id}`
+    this.mintLink = `https://metabolism-22.vercel.app/mint`
     console.log("triggered", id)
     //this.updateContractMedia("https://ipfs.io/ipfs/bafkreiec6p23oewjapaqkypt7vafhgyfejefa6fk6eso2blie5kytezata")
   }
