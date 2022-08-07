@@ -109,7 +109,6 @@ export class WorldScene extends Phaser.Scene {
     }.bind(this));
 
     this.input.keyboard.on("keydown-M", function (event: any) {
-     console.log("add mint function here")
      window.open("https://metabolism-22.vercel.app/mint", '_blank');
      }.bind(this));
 
